@@ -1,4 +1,4 @@
-name: 'Trusted Signing'
+name: 'Trusted Signing Show Code Fork'
 description: 'Sign your files with Trusted Signing.'
 inputs:
   azure-tenant-id:
