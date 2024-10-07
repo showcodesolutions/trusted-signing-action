@@ -197,7 +197,7 @@ runs:
   steps:
     - name: Set variables
       id: set-variables
-      shell: pwsh
+      shell: powershell
       run: |
         $defaultPath = $env:PSModulePath -split ';' | Select-Object -First 1
         "PSMODULEPATH=$defaultPath" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
@@ -237,7 +237,7 @@ runs:
       if: ${{ inputs.cache-dependencies == 'true' }}
 
     - name: Install Trusted Signing module
-      shell: pwsh
+      shell: powershell
       run: |
         Install-Module -Name TrustedSigning -RequiredVersion ${{ steps.set-variables.outputs.TRUSTED_SIGNING_MODULE_VERSION }} -Force -Repository PSGallery
       if: ${{ inputs.cache-dependencies != 'true' || steps.cache-module.outputs.cache-hit != 'true' }}
@@ -453,4 +453,4 @@ runs:
         }
 
         Invoke-TrustedSigning @params
-      shell: pwsh
+      shell: powershell
